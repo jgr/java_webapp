@@ -120,6 +120,15 @@
 		</war>
 	</target>
 
+	<target name="testMemcached" depends="compile">
+ 		<war destfile="${deploy}/testmemcached.war" webxml="resources/TestMemcached/WEB-INF/web.xml">
+			<lib dir="${lib}">
+				<include name="spymemcached-2.10.4.jar" />
+			</lib>
+			<classes dir="${build}" />
+		</war>
+	</target>
+
 	<target name="helloSpring" depends="compile">
 		<war destfile="${deploy}/hellospringmvc.war" webxml="resources/HelloSpringMVC/WEB-INF/web.xml">
 			<lib dir="${lib}">
@@ -150,6 +159,6 @@
 		</copy>
 	</target>
 
-	<target name="main" depends="helloservlet, hellojndi, helloSpring, hellopostgres, helloMemcached">
+	<target name="main" depends="helloservlet, hellojndi, helloSpring, hellopostgres, helloMemcached, testMemcached">
 	</target>
 </project>
